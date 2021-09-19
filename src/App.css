@@ -1,0 +1,26 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans, sans-serif;
+    background: #ebebeb;
+}
+
+.GridLayoutItem {
+    background-color: white;
+    margin: 5px;
+    border-radius: 0.15em;
+    box-shadow: 0 1px 5px -5px black;
+    padding: 1.5em;
+}
+
+/* simple responsive design (in real project I will use tailwind/bootstrap for that) */
+@media only screen and (max-width: 768px) {
+    .GridLayout {
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
+
+    .GridLayoutItem {
+        grid-column: 1 / 2 !important;
+    }
+}
