@@ -33,7 +33,7 @@ export class GridLayout extends Component<GridLayoutProps> {
         return <div className="GridLayout" style={{
             ...this.props.style,
             display: 'grid',
-            gridTemplateColumns: this.props.columns ? 'auto' : `repeat(${this.props.columns}, 1fr)`,
+            gridTemplateColumns: this.props.columns ? `repeat(${this.props.columns}, 1fr)` : 'auto',
             gridTemplateRows: this.props.rows ? `repeat(${this.props.rows}, 1fr)` : 'auto',
             columnGap: this.props.columnGap,
             rowGap: this.props.rowGap,
