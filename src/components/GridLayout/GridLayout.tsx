@@ -34,7 +34,7 @@ export class GridLayout extends Component<GridLayoutProps> {
             ...this.props.style,
             display: 'grid',
             gridTemplateColumns: this.props.columns ? `repeat(${this.props.columns}, 1fr)` : 'auto',
-            gridTemplateRows: this.props.rows ? `repeat(${this.props.rows}, 1fr)` : 'auto',
+            gridTemplateRows: this.props.rows ? `repeat(${this.props.rows}, 1fr)` : undefined,
             columnGap: this.props.columnGap,
             rowGap: this.props.rowGap,
         }}>{childrensSortedByPriority}</div>
@@ -47,14 +47,14 @@ export class GridLayoutItem extends Component<GridLayoutItemProps> {
         columnSpan: 0,
         row: NaN,
         rowSpan: 0,
-        priority: NaN
+        priority: Number.MAX_VALUE
     }
 
     render() {
         return <div className="GridLayoutItem" style={{
             ...this.props.style,
-            gridColumn: this.props.column ? `${this.props.column}/${this.props.column! + this.props.columnSpan!}` : 'auto',
-            gridRow: this.props.row ? `${this.props.row}/${this.props.row! + this.props.rowSpan!}` : 'auto'
+            gridColumn: this.props.column ? `${this.props.column}/ span ${this.props.columnSpan!}` : 'auto',
+            gridRow: this.props.row ? `${this.props.row}/ span ${this.props.rowSpan!}` : undefined
         }}>{this.props.children}</div>
     }
 }
